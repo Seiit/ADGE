@@ -1,0 +1,12 @@
+C:\workspace\ADGE\adge_back_end\Adge.Model\bin\Debug\net6.0\Adge.Model.deps.json
+C:\workspace\ADGE\adge_back_end\Adge.Model\bin\Debug\net6.0\Adge.Model.dll
+C:\workspace\ADGE\adge_back_end\Adge.Model\bin\Debug\net6.0\Adge.Model.pdb
+C:\workspace\ADGE\adge_back_end\Adge.Model\obj\Debug\net6.0\Adge.Model.csproj.AssemblyReference.cache
+C:\workspace\ADGE\adge_back_end\Adge.Model\obj\Debug\net6.0\Adge.Model.GeneratedMSBuildEditorConfig.editorconfig
+C:\workspace\ADGE\adge_back_end\Adge.Model\obj\Debug\net6.0\Adge.Model.AssemblyInfoInputs.cache
+C:\workspace\ADGE\adge_back_end\Adge.Model\obj\Debug\net6.0\Adge.Model.AssemblyInfo.cs
+C:\workspace\ADGE\adge_back_end\Adge.Model\obj\Debug\net6.0\Adge.Model.csproj.CoreCompileInputs.cache
+C:\workspace\ADGE\adge_back_end\Adge.Model\obj\Debug\net6.0\Adge.Model.dll
+C:\workspace\ADGE\adge_back_end\Adge.Model\obj\Debug\net6.0\refint\Adge.Model.dll
+C:\workspace\ADGE\adge_back_end\Adge.Model\obj\Debug\net6.0\Adge.Model.pdb
+C:\workspace\ADGE\adge_back_end\Adge.Model\obj\Debug\net6.0\ref\Adge.Model.dll

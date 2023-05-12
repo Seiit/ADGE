@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "175799000158",
+    "project_id": "adge-14508",
+    "storage_bucket": "adge-14508.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:175799000158:android:8e3204750facbb3ef8e8cf",
+        "android_client_info": {
+          "package_name": "com.example.adge"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "175799000158-l48de7pm98ip7iukv6n2v723i35hraep.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBPnr-c4UrZzv4YP6KpBYbaHG4WNG3FaNs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "175799000158-l48de7pm98ip7iukv6n2v723i35hraep.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

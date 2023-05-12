@@ -1,0 +1,22 @@
+apiVersion :  app/v1
+kind: Deployment
+metadata:
+  name: iam
+spec:
+  replicas: 3
+  selector:
+    matchlabes:
+      role: iam
+  minReadySecond: 20
+  strategy:
+    rollingUpdate:
+  template:
+    metadata:
+      labels:
+        role: iam
+    spect:
+      containers:
+      - name: iam
+        image: adge/iam
+        ports:
+        - containerPort: 3800 

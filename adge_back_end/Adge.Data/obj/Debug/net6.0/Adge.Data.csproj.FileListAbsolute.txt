@@ -1,0 +1,15 @@
+C:\workspace\ADGE\adge_back_end\Adge.Data\bin\Debug\net6.0\Adge.Data.deps.json
+C:\workspace\ADGE\adge_back_end\Adge.Data\bin\Debug\net6.0\Adge.Data.dll
+C:\workspace\ADGE\adge_back_end\Adge.Data\bin\Debug\net6.0\Adge.Data.pdb
+C:\workspace\ADGE\adge_back_end\Adge.Data\obj\Debug\net6.0\Adge.Data.csproj.AssemblyReference.cache
+C:\workspace\ADGE\adge_back_end\Adge.Data\obj\Debug\net6.0\Adge.Data.GeneratedMSBuildEditorConfig.editorconfig
+C:\workspace\ADGE\adge_back_end\Adge.Data\obj\Debug\net6.0\Adge.Data.AssemblyInfoInputs.cache
+C:\workspace\ADGE\adge_back_end\Adge.Data\obj\Debug\net6.0\Adge.Data.AssemblyInfo.cs
+C:\workspace\ADGE\adge_back_end\Adge.Data\obj\Debug\net6.0\Adge.Data.csproj.CoreCompileInputs.cache
+C:\workspace\ADGE\adge_back_end\Adge.Data\obj\Debug\net6.0\Adge.Data.dll
+C:\workspace\ADGE\adge_back_end\Adge.Data\obj\Debug\net6.0\refint\Adge.Data.dll
+C:\workspace\ADGE\adge_back_end\Adge.Data\obj\Debug\net6.0\Adge.Data.pdb
+C:\workspace\ADGE\adge_back_end\Adge.Data\obj\Debug\net6.0\ref\Adge.Data.dll
+C:\workspace\ADGE\adge_back_end\Adge.Data\bin\Debug\net6.0\Adge.Model.dll
+C:\workspace\ADGE\adge_back_end\Adge.Data\bin\Debug\net6.0\Adge.Model.pdb
+C:\workspace\ADGE\adge_back_end\Adge.Data\obj\Debug\net6.0\Adge.Data.csproj.CopyComplete
