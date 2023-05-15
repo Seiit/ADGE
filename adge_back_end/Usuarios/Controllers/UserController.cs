@@ -1,13 +1,17 @@
 ﻿using Adge.Data.Repositories;
 using Adge.Model;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using System.Text.Json.Nodes;
+using Pararmetricas.Models;
+using System.Security.Claims;
 
 namespace usuarios.Controllers
 {
     [ApiController]
     [Route("Usuario")]
-    public class UserController
+    [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+    public class UserController : ControllerBase
     {
         private readonly IUsuarioRepository _usuarioRepository;
 
@@ -19,48 +23,76 @@ namespace usuarios.Controllers
         [HttpGet]
         public async Task<dynamic> GetUsuarios()
         {
+            var identity = HttpContext.User.Identity as ClaimsIdentity;
+
+            var rtoken = Jwt.validarToken(identity);
+
+            if (!rtoken.success) return rtoken;
+
             return _usuarioRepository.GetUsers();
         }
 
         [HttpGet]
         [Route("user")]
-        public async Task<dynamic> GetUsuariosByUid(string uid)
+        public async Task<dynamic> GetUsuariosImgByUid(string uid)
         {
+            var identity = HttpContext.User.Identity as ClaimsIdentity;
+
+            var rtoken = Jwt.validarToken(identity);
+
+            if (!rtoken.success) return rtoken;
+
             return _usuarioRepository.GetUsersByUid(uid);
         }
 
         [HttpDelete]
         public async Task<dynamic> DeleteUsuariosByUid(string uid)
         {
+            var identity = HttpContext.User.Identity as ClaimsIdentity;
+
+            var rtoken = Jwt.validarToken(identity);
+
+            if (!rtoken.success) return rtoken;
+
             return _usuarioRepository.DeleteUsers(uid);
         }
 
         [HttpPost]
         public async Task<dynamic> PostUsuario([FromBody] Usuario user)
         {
+            var identity = HttpContext.User.Identity as ClaimsIdentity;
+
+            var rtoken = Jwt.validarToken(identity);
+
+            if (!rtoken.success) return rtoken;
+
             return _usuarioRepository.CreateUser(user);
         }
 
         [HttpPut]
         public async Task<dynamic> PutUsuario([FromBody] Usuario user)
         {
+            var identity = HttpContext.User.Identity as ClaimsIdentity;
+
+            var rtoken = Jwt.validarToken(identity);
+
+            if (!rtoken.success) return rtoken;
+
             return _usuarioRepository.UpdateUsers(user);
         }
 
         [HttpPut]
         [Route("user")]
-        public async Task<dynamic> CargarArchivo(IFormFile archivo)
+        public async Task<dynamic> PutUsuarioImg([FromBody] Usuario user)
         {
-            // Aquí puedes trabajar con el archivo recibido, por ejemplo, guardarlo en disco o en una base de datos
-            // El archivo se encuentra en la variable "archivo", que es de tipo IFormFile
+            var identity = HttpContext.User.Identity as ClaimsIdentity;
 
-            // Ejemplo: guardar el archivo en disco
-            using (var stream = new FileStream("ruta/del/archivo", FileMode.Create))
-            {
-                await archivo.CopyToAsync(stream);
-            }
+            var rtoken = Jwt.validarToken(identity);
 
-            return new { result = true};
+            if (!rtoken.success) return rtoken;
+
+            return _usuarioRepository.UpdateUsersImg(user);
         }
+
     }
 }

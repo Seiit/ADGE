@@ -63,7 +63,7 @@ class AdgeApi {
 
       if (res.data['result']['success'] == false) {
         AlertService.alertApiError(
-            context, ApiErrorUtils.getErrors(res.data['result']));
+            context, ApiErrorUtils.getErrors(res.data['result']['result']));
         return null;
       }
 
@@ -83,20 +83,6 @@ class AdgeApi {
     } on DioError catch (e) {
       print(e);
       throw ('Error en el delete');
-    }
-  }
-
-  static Future uploadFile(String path, Uint8List bytes) async {
-    final formData =
-        FormData.fromMap({'archivo': MultipartFile.fromBytes(bytes)});
-
-    try {
-      final resp = await _dio.put(path, data: formData);
-
-      return resp.data;
-    } on DioError catch (e) {
-      print(e);
-      throw ('Error en el PUT $e');
     }
   }
 }

@@ -3,6 +3,8 @@ import 'package:adge/providers/dashboard/sidemenu_provider.dart';
 import 'package:adge/router/router.dart';
 import 'package:adge/ui/views/auth/login_view.dart';
 import 'package:adge/ui/views/dashboard_view.dart';
+import 'package:adge/ui/views/roles/rol_view.dart';
+import 'package:adge/ui/views/roles/roles_view.dart';
 import 'package:adge/ui/views/user/user_view.dart';
 import 'package:adge/ui/views/user/users_view.dart';
 import 'package:fluro/fluro.dart';
@@ -48,6 +50,36 @@ class DashboardHandlers {
       return LoginView();
     }
   });
+
+  static Handler roles = Handler(handlerFunc: (context, params) {
+    final authProvider = Provider.of<AuthProvider>(context!);
+    Provider.of<SideMenuProvider>(context, listen: false)
+        .setCurrentPageUrl(Flurorouter.rolesRoute);
+
+    if (authProvider.authStatus == AuthStatus.authenticated) {
+      return const RolesView();
+    } else {
+      return LoginView();
+    }
+  });
+
+  static Handler rol = Handler(handlerFunc: (context, params) {
+    final authProvider = Provider.of<AuthProvider>(context!);
+    Provider.of<SideMenuProvider>(context, listen: false)
+        .setCurrentPageUrl(Flurorouter.userRoute);
+
+    if (authProvider.authStatus == AuthStatus.authenticated) {
+      print(params);
+      if (params['id']?.first != null) {
+        return RolView(id: params['id']!.first, isCreate: false);
+      } else {
+        return RolesView();
+      }
+    } else {
+      return LoginView();
+    }
+  });
+
   /*
 // users
   static Handler users = Handler(handlerFunc: (context, params) {

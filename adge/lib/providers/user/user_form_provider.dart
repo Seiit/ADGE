@@ -1,6 +1,6 @@
-import 'dart:typed_data';
 import 'package:adge/api/AdgeApi.dart';
 import 'package:adge/models/usuario.dart';
+import 'package:adge/services/upload_image.dart';
 import 'package:flutter/material.dart';
 
 class UserFormProvider extends ChangeNotifier {
@@ -38,29 +38,20 @@ class UserFormProvider extends ChangeNotifier {
   Future updateUser(context) async {
     if (!this._validForm()) return false;
 
-    Map<String, dynamic> data = {
-      'id': user!.uid,
-      'nombre': user!.nombre,
-      'correo': user!.correo,
-    };
+    Map<String, dynamic> data = user!.toMap();
 
     try {
       final resp = await AdgeApi.Put('/user/Usuario', data, context);
-      print(resp);
-      return true;
+      return resp == null ? false : true;
     } catch (e) {
       print('error en updateUser: $e');
       return false;
     }
   }
 
-  Future<Usuario> uploadImage(String path, Uint8List bytes) async {
+  Future uploadImage(String path, context) async {
     try {
-      final resp = await AdgeApi.uploadFile(path, bytes);
-      user = Usuario.fromMap(resp);
-      notifyListeners();
-
-      return user!;
+      uploadUserImages(path, user!, context);
     } catch (e) {
       print(e);
       throw 'Error en user from provider provider';

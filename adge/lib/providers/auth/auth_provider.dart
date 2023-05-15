@@ -4,7 +4,6 @@ import 'package:adge/router/router.dart';
 import 'package:adge/services/local_storage.dart';
 import 'package:adge/services/navigation_service.dart';
 import 'package:adge/services/notifications_service.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 
@@ -74,7 +73,7 @@ class AuthProvider extends ChangeNotifier {
       var user = userCredential.user;
       String token = await user!.getIdToken(true);
 
-      final data = {'nombre': name, 'correo': email, 'id': user.uid};
+      final data = {'nombre': name, 'correo': email, 'id': user.uid, 'img': ''};
 
       AdgeApi.Post('/user/Usuario', data, context).then((json) {
         print(json);

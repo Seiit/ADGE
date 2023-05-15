@@ -65,7 +65,7 @@ namespace Adge.Data.Repositories.rol
 
             db.Open();
 
-            String sql = "UPDATE adge.rol SET rol= @rol, valor_calificacion=0 WHERE id_rol= @id_rol ";
+            String sql = "IF NOT EXISTS (SELECT 1 FROM adge.rol WHERE rol = @rol and id_rol != @id_rol) BEGIN UPDATE adge.rol SET rol= @rol, valor_calificacion=0 WHERE id_rol= @id_rol END";
 
             await using (SqlCommand cmd = new SqlCommand(sql, db))
             {
@@ -76,7 +76,7 @@ namespace Adge.Data.Repositories.rol
                 {
                     var result = cmd.ExecuteNonQuery();
 
-                    if (result != 0)
+                    if (result > 0)
                     {
                         return new
                         {
@@ -136,7 +136,7 @@ namespace Adge.Data.Repositories.rol
                 {
                     var result = cmd.ExecuteNonQuery();
 
-                    if (result != 0)
+                    if (result > 0)
                     {
                         return new
                         {
@@ -186,7 +186,7 @@ namespace Adge.Data.Repositories.rol
 
             db.Open();
 
-            String sql = "INSERT INTO adge.rol (rol, valor_calificacion) VALUES(@rol, 0)";
+            String sql = "IF NOT EXISTS (SELECT 1 FROM adge.rol WHERE rol = @rol) BEGIN INSERT INTO adge.rol (rol, valor_calificacion) VALUES(@rol, 0) END";
 
             await using (SqlCommand cmd = new SqlCommand(sql, db))
             {
@@ -196,7 +196,7 @@ namespace Adge.Data.Repositories.rol
                 {
                     var result = cmd.ExecuteNonQuery();
 
-                    if (result != 0)
+                    if (result > 0)
                     {
                         return new
                         {
@@ -292,13 +292,13 @@ namespace Adge.Data.Repositories.rol
             {
                 autonumerado = 1,
                 parametro = "uid",
-                textoError = "Usuario no encontrado"
+                textoError = "Rol no encontrado"
             });
 
             return new
             {
                 success = false,
-                message = "Usuario no encontrado",
+                message = "Rol no encontrado",
                 result = dbErrors
             };
         }

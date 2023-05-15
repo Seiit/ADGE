@@ -39,7 +39,7 @@ class Usuario {
         "google": google,
         "nombre": nombre,
         "correo": correo,
-        "uid": uid,
+        "id": uid,
         "img": img,
       };
 }

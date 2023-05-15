@@ -32,7 +32,6 @@ const server = gateway({
     middlewares: [
 
         (req, res, next) => {
-            return next()
             console.log(req.originalUrl)
 
             if (req.originalUrl == '/healt' || req.originalUrl == '/register/Register' ) {
@@ -62,10 +61,11 @@ const server = gateway({
         },
         {
             prefix: "/user",
-            target: "http://localhost:7244/WeatherForecast",
+            target: "http://localhost:7244",
             hooks: {
                 rewriteRequestHeaders(req, headers) {
                     headers['Content-Type'] = 'application/json';
+                    console.log(_token)
                     headers['Authorization'] = 'Bearer ' + _token;
                     return headers
                 }

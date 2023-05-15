@@ -1,7 +1,6 @@
 import 'package:adge/providers/dashboard/sidemenu_provider.dart';
 import 'package:adge/ui/views/shared/widgets/navbar_avatar.dart';
 import 'package:adge/ui/views/shared/widgets/notifications_indicator.dart';
-import 'package:adge/ui/views/shared/widgets/search_text.dart';
 import 'package:flutter/material.dart';
 
 class Navbar extends StatelessWidget {
@@ -23,13 +22,7 @@ class Navbar extends StatelessWidget {
           SizedBox(width: 5),
 
           // Search input
-          if (size.width > 390)
-            ConstrainedBox(
-              constraints: BoxConstraints(maxWidth: 250),
-              child: SearchText(),
-            ),
-
-          Spacer(),
+          if (size.width > 390) Spacer(),
 
           NotificationsIndicator(),
           SizedBox(width: 10),

@@ -117,6 +117,66 @@ namespace Adge.Data.Repositories
                 result = dbErrors
             };
         }
+        public async Task<dynamic> UpdateUsersImg(Usuario user)
+        {
+            List<DbError> dbErrors = new List<DbError>();
+            var db = dbConection();
+
+            db.Open();
+
+            String sql = "UPDATE adge.usuario SET img= @img WHERE id_usuario= @id_usuario";
+
+            await using (SqlCommand cmd = new SqlCommand(sql, db))
+            {
+                cmd.Parameters.AddWithValue("@id_usuario", user.id);
+                cmd.Parameters.AddWithValue("@img", user.img);
+
+                try
+                {
+                    var result = cmd.ExecuteNonQuery();
+
+                    if (result > 0)
+                    {
+                        return new
+                        {
+                            success = true,
+                            message = "ok",
+                            result = true
+                        };
+                    }
+                }
+                catch (Exception ex)
+                {
+                    dbErrors.Add(new DbError
+                    {
+                        autonumerado = 1,
+                        parametro = "actualizacion",
+                        textoError = "No se pudo actualizar el usuario"
+                    });
+
+                    return new
+                    {
+                        success = false,
+                        message = "No hubo actualizacion",
+                        result = dbErrors
+                    };
+                }
+            }
+
+            dbErrors.Add(new DbError
+            {
+                autonumerado = 1,
+                parametro = "actualizacion",
+                textoError = "No se pudo actualizar el usuario"
+            });
+
+            return new
+            {
+                success = false,
+                message = "No hubo actualizacion",
+                result = dbErrors
+            };
+        }
 
         public async Task<dynamic> DeleteUsers(String uid)
         {
@@ -266,7 +326,8 @@ namespace Adge.Data.Repositories
                             {
                                 id = reader.GetString(0),
                                 nombre = reader.GetString(1),
-                                correo = reader.GetString(2)
+                                correo = reader.GetString(2),
+                                img = reader.IsDBNull(3)? "": reader.GetString(3)
                             }
                         };
                     }

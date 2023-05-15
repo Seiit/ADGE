@@ -9,7 +9,6 @@ import 'package:adge/ui/views/inputs/custom_inputs.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:email_validator/email_validator.dart';
-import 'package:file_picker/file_picker.dart';
 
 class UserView extends StatefulWidget {
   final String uid;
@@ -144,7 +143,7 @@ class _UserViewForm extends StatelessWidget {
               ),
               SizedBox(height: 20),
               ConstrainedBox(
-                constraints: BoxConstraints(maxWidth: 100),
+                constraints: BoxConstraints(maxWidth: 120),
                 child: ElevatedButton(
                     onPressed: () async {
                       final saved = await userFormProvider.updateUser(context);
@@ -164,7 +163,7 @@ class _UserViewForm extends StatelessWidget {
                           MaterialStateProperty.all(Colors.transparent),
                     ),
                     child: Row(
-                      children: [
+                      children: const [
                         Icon(Icons.save_outlined, size: 20),
                         Text('  Guardar')
                       ],
@@ -182,7 +181,7 @@ class _AvatarContainer extends StatelessWidget {
     final userFormProvider = Provider.of<UserFormProvider>(context);
     final user = userFormProvider.user!;
 
-    final image = (user.img == null)
+    final image = (user.img == null || user.img == '')
         ? Image(image: AssetImage('no-image.jpg'))
         : FadeInImage.assetNetwork(placeholder: 'loader.gif', image: user.img!);
 
@@ -215,35 +214,13 @@ class _AvatarContainer extends StatelessWidget {
                           child: FloatingActionButton(
                             backgroundColor: Colors.indigo,
                             elevation: 0,
-                            child: Icon(
+                            child: const Icon(
                               Icons.camera_alt_outlined,
                               size: 20,
                             ),
                             onPressed: () async {
-                              FilePickerResult? result =
-                                  await FilePicker.platform.pickFiles(
-                                      type: FileType.custom,
-                                      allowedExtensions: ['jpg', 'jpeg', 'png'],
-                                      allowMultiple: false);
-
-                              if (result != null) {
-                                // PlatformFile file = result.files.first;
-                                NotificationsService.showBusyIndicator(context);
-
-                                final newUser =
-                                    await userFormProvider.uploadImage(
-                                        '/user/Usuario/user?id=${user.uid}',
-                                        result.files.first.bytes!);
-
-                                Provider.of<UsersProvider>(context,
-                                        listen: false)
-                                    .refreshUser(newUser);
-
-                                Navigator.of(context).pop();
-                              } else {
-                                // User canceled the picker
-                                print('no hay imagen');
-                              }
+                              await userFormProvider.uploadImage(
+                                  '/user/Usuario/user?id=${user.uid}', context);
                             },
                           ),
                         ),

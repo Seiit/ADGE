@@ -27,7 +27,7 @@ class Sidebar extends StatelessWidget {
         children: [
           Logo(),
           SizedBox(height: 50),
-          TextSeparator(text: 'main'),
+          TextSeparator(text: 'Administracion'),
           MenuItem(
             text: 'Dashboard',
             icon: Icons.compass_calibration_outlined,
@@ -44,11 +44,10 @@ class Sidebar extends StatelessWidget {
               icon: Icons.show_chart_outlined,
               onPressed: () {}),
           MenuItem(
-            text: 'Categories',
+            text: 'Roles',
             icon: Icons.layers_outlined,
-            onPressed: () => navigateTo(Flurorouter.categoriesRoute),
-            isActive:
-                sideMenuProvider.currentPage == Flurorouter.categoriesRoute,
+            onPressed: () => navigateTo(Flurorouter.rolesRoute),
+            isActive: sideMenuProvider.currentPage == Flurorouter.rolesRoute,
           ),
           MenuItem(
               text: 'Products',
@@ -65,9 +64,9 @@ class Sidebar extends StatelessWidget {
             isActive: sideMenuProvider.currentPage == Flurorouter.usersRoute,
           ),
           SizedBox(height: 30),
-          TextSeparator(text: 'UI Elements'),
+          TextSeparator(text: 'Personal'),
           MenuItem(
-            text: 'Icons',
+            text: 'Empresa',
             icon: Icons.list_alt_outlined,
             onPressed: () => navigateTo(Flurorouter.iconsRoute),
             isActive: sideMenuProvider.currentPage == Flurorouter.iconsRoute,

@@ -2,6 +2,8 @@ import 'package:adge/api/AdgeApi.dart';
 import 'package:adge/firebase_options.dart';
 import 'package:adge/providers/auth/auth_provider.dart';
 import 'package:adge/providers/dashboard/sidemenu_provider.dart';
+import 'package:adge/providers/roles/rol_form_provider.dart';
+import 'package:adge/providers/roles/roles_provider.dart';
 import 'package:adge/providers/user/user_form_provider.dart';
 import 'package:adge/providers/user/users_provider.dart';
 import 'package:adge/router/router.dart';
@@ -36,6 +38,8 @@ class AppState extends StatelessWidget {
         ChangeNotifierProvider(lazy: false, create: (_) => SideMenuProvider()),
         ChangeNotifierProvider(create: (_) => UsersProvider(context)),
         ChangeNotifierProvider(create: (_) => UserFormProvider()),
+        ChangeNotifierProvider(create: (_) => RolesProvider(context)),
+        ChangeNotifierProvider(create: (_) => RolFormProvider()),
       ],
       child: MyApp(),
     );

@@ -16,7 +16,7 @@ class UsersView extends StatelessWidget {
       child: ListView(
         physics: ClampingScrollPhysics(),
         children: [
-          Text('Users View', style: CustomLabels.h1),
+          Text('Usuarios', style: CustomLabels.h1),
           SizedBox(height: 10),
           PaginatedDataTable(
             sortAscending: usersProvider.ascending,

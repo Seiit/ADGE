@@ -14,12 +14,13 @@ namespace Adge.Data.Repositories
 
         Task<dynamic> UpdateUsers(Usuario usuario);
 
+        Task<dynamic> UpdateUsersImg(Usuario usuario);
+
         Task<dynamic> DeleteUsers(String uid);
 
         Task<dynamic?> GetUsersByUid(string uid);
 
         Task<dynamic?> CreateUser(Usuario user);
 
-       // Task<dynamic> CargarArchivo(IFormFile archivo);
     }
 }

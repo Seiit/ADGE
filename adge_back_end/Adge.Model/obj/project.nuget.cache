@@ -1,8 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "m+Te9jQR4ueEZN0gyGphljDVnm8x4OxXVFL7yVZ0lwkSKI076AB7hB/NnLRlqDBBHuJsM0CjHRrOKVWNjyRcpQ==",
+  "dgSpecHash": "jePSYHqYoga0aoMKTVihaeHMCGZ1549gwefw94PnDgwAaT3Nkf7JwMVHz18DMoBVWvGfeB68XYltP5aaAAFhHg==",
   "success": true,
   "projectFilePath": "C:\\workspace\\ADGE\\adge_back_end\\Adge.Model\\Adge.Model.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\seiit\\.nuget\\packages\\microsoft.aspnetcore.http.features\\2.2.0\\microsoft.aspnetcore.http.features.2.2.0.nupkg.sha512",
+    "C:\\Users\\seiit\\.nuget\\packages\\microsoft.extensions.primitives\\2.2.0\\microsoft.extensions.primitives.2.2.0.nupkg.sha512",
+    "C:\\Users\\seiit\\.nuget\\packages\\system.memory\\4.5.1\\system.memory.4.5.1.nupkg.sha512",
+    "C:\\Users\\seiit\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\4.5.1\\system.runtime.compilerservices.unsafe.4.5.1.nupkg.sha512"
+  ],
   "logs": []
 }
