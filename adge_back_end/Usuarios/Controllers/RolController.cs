@@ -1,5 +1,4 @@
-﻿using Adge.Data.Repositories;
-using Adge.Data.Repositories.rol;
+﻿using Adge.Data.Repositories.rol;
 using Adge.Model;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
@@ -71,7 +70,7 @@ namespace usuarios.Controllers
         }
 
         [HttpPut]
-        public async Task<dynamic> PutUsuario([FromBody] Rol rol)
+        public async Task<dynamic> PutRol([FromBody] Rol rol)
         {
             var identity = HttpContext.User.Identity as ClaimsIdentity;
 

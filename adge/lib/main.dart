@@ -1,7 +1,11 @@
 import 'package:adge/api/AdgeApi.dart';
 import 'package:adge/firebase_options.dart';
+import 'package:adge/providers/asignaciones/asignacion_form_provider.dart';
+import 'package:adge/providers/asignaciones/asignaciones_provider.dart';
 import 'package:adge/providers/auth/auth_provider.dart';
 import 'package:adge/providers/dashboard/sidemenu_provider.dart';
+import 'package:adge/providers/empresas/empresa_form_provider.dart';
+import 'package:adge/providers/empresas/empresas_provider.dart';
 import 'package:adge/providers/roles/rol_form_provider.dart';
 import 'package:adge/providers/roles/roles_provider.dart';
 import 'package:adge/providers/user/user_form_provider.dart';
@@ -40,6 +44,10 @@ class AppState extends StatelessWidget {
         ChangeNotifierProvider(create: (_) => UserFormProvider()),
         ChangeNotifierProvider(create: (_) => RolesProvider(context)),
         ChangeNotifierProvider(create: (_) => RolFormProvider()),
+        ChangeNotifierProvider(create: (_) => EmpresasProvider(context)),
+        ChangeNotifierProvider(create: (_) => EmpresaFormProvider()),
+        ChangeNotifierProvider(create: (_) => AsignacionesProvider(context)),
+        ChangeNotifierProvider(create: (_) => AsignacionFormProvider()),
       ],
       child: MyApp(),
     );

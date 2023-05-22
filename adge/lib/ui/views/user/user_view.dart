@@ -1,10 +1,12 @@
 import 'package:adge/models/usuario.dart';
 import 'package:adge/providers/user/user_form_provider.dart';
 import 'package:adge/providers/user/users_provider.dart';
+import 'package:adge/router/router.dart';
 import 'package:adge/services/navigation_service.dart';
 import 'package:adge/services/notifications_service.dart';
 import 'package:adge/ui/cards/white_card.dart';
 import 'package:adge/ui/labels/custom_labels.dart';
+import 'package:adge/ui/views/asignaciones/asignaciones_view.dart';
 import 'package:adge/ui/views/inputs/custom_inputs.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -65,7 +67,7 @@ class _UserViewState extends State<UserView> {
               height: 300,
               child: CircularProgressIndicator(),
             )),
-          if (user != null) _UserViewBody()
+          if (user != null) _UserViewBody(),
         ],
       ),
     );
@@ -85,7 +87,7 @@ class _UserViewBody extends StatelessWidget {
 
             // Formulario de actualización
             _UserViewForm(),
-          ])
+          ]),
         ],
       ),
     );
@@ -142,32 +144,60 @@ class _UserViewForm extends StatelessWidget {
                 },
               ),
               SizedBox(height: 20),
-              ConstrainedBox(
-                constraints: BoxConstraints(maxWidth: 120),
-                child: ElevatedButton(
-                    onPressed: () async {
-                      final saved = await userFormProvider.updateUser(context);
-                      if (saved) {
-                        NotificationsService.showSnackbarSucces(
-                            'Mensaje:', 'Usuario actualizado', context);
-                        Provider.of<UsersProvider>(context, listen: false)
-                            .refreshUser(user);
-                      } else {
-                        NotificationsService.showSnackbarError(
-                            'Advertencia:', 'No se pudo guardar', context);
-                      }
-                    },
-                    style: ButtonStyle(
-                      backgroundColor: MaterialStateProperty.all(Colors.indigo),
-                      shadowColor:
-                          MaterialStateProperty.all(Colors.transparent),
-                    ),
-                    child: Row(
-                      children: const [
-                        Icon(Icons.save_outlined, size: 20),
-                        Text('  Guardar')
-                      ],
-                    )),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  ConstrainedBox(
+                    constraints: BoxConstraints(maxWidth: 120),
+                    child: ElevatedButton(
+                        onPressed: () async {
+                          final saved =
+                              await userFormProvider.updateUser(context);
+                          if (saved) {
+                            NotificationsService.showSnackbarSucces(
+                                'Mensaje:', 'Usuario actualizado', context);
+                            Provider.of<UsersProvider>(context, listen: false)
+                                .refreshUser(user);
+                          } else {
+                            NotificationsService.showSnackbarError(
+                                'Advertencia:', 'No se pudo guardar', context);
+                          }
+                        },
+                        style: ButtonStyle(
+                          backgroundColor:
+                              MaterialStateProperty.all(Colors.indigo),
+                          shadowColor:
+                              MaterialStateProperty.all(Colors.transparent),
+                        ),
+                        child: Row(
+                          children: const [
+                            Icon(Icons.save_outlined, size: 20),
+                            Text('  Guardar')
+                          ],
+                        )),
+                  ),
+                  SizedBox(width: 20),
+                  ConstrainedBox(
+                    constraints: BoxConstraints(maxWidth: 150),
+                    child: ElevatedButton(
+                        onPressed: () {
+                          NavigationService.replaceTo(
+                              '/dashboard/asignaciones/${user.uid}');
+                        },
+                        style: ButtonStyle(
+                          backgroundColor:
+                              MaterialStateProperty.all(Colors.indigo),
+                          shadowColor:
+                              MaterialStateProperty.all(Colors.transparent),
+                        ),
+                        child: Row(
+                          children: const [
+                            Icon(Icons.save_outlined, size: 20),
+                            Text('  Asignaciones')
+                          ],
+                        )),
+                  )
+                ],
               )
             ],
           ),

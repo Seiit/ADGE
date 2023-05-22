@@ -1,0 +1,288 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\workspace\\ADGE\\adge_back_end\\Usuarios\\Empresas.csproj": {}
+  },
+  "projects": {
+    "C:\\workspace\\ADGE\\adge_back_end\\Adge.Data\\Adge.Data.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\workspace\\ADGE\\adge_back_end\\Adge.Data\\Adge.Data.csproj",
+        "projectName": "Adge.Data",
+        "projectPath": "C:\\workspace\\ADGE\\adge_back_end\\Adge.Data\\Adge.Data.csproj",
+        "packagesPath": "C:\\Users\\seiit\\.nuget\\packages\\",
+        "outputPath": "C:\\workspace\\ADGE\\adge_back_end\\Adge.Data\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\seiit\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "C:\\workspace\\ADGE\\adge_back_end\\Adge.Model\\Adge.Model.csproj": {
+                "projectPath": "C:\\workspace\\ADGE\\adge_back_end\\Adge.Model\\Adge.Model.csproj"
+              },
+              "C:\\workspace\\ADGE\\adge_back_end\\Parametricas.Model\\Parametricas.Model.csproj": {
+                "projectPath": "C:\\workspace\\ADGE\\adge_back_end\\Parametricas.Model\\Parametricas.Model.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.Http.Features": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "Microsoft.Data.SqlClient": {
+              "target": "Package",
+              "version": "[5.1.1, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\workspace\\ADGE\\adge_back_end\\Adge.Model\\Adge.Model.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\workspace\\ADGE\\adge_back_end\\Adge.Model\\Adge.Model.csproj",
+        "projectName": "Adge.Model",
+        "projectPath": "C:\\workspace\\ADGE\\adge_back_end\\Adge.Model\\Adge.Model.csproj",
+        "packagesPath": "C:\\Users\\seiit\\.nuget\\packages\\",
+        "outputPath": "C:\\workspace\\ADGE\\adge_back_end\\Adge.Model\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\seiit\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.Http.Features": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\workspace\\ADGE\\adge_back_end\\Parametricas.Model\\Parametricas.Model.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\workspace\\ADGE\\adge_back_end\\Parametricas.Model\\Parametricas.Model.csproj",
+        "projectName": "Parametricas.Model",
+        "projectPath": "C:\\workspace\\ADGE\\adge_back_end\\Parametricas.Model\\Parametricas.Model.csproj",
+        "packagesPath": "C:\\Users\\seiit\\.nuget\\packages\\",
+        "outputPath": "C:\\workspace\\ADGE\\adge_back_end\\Parametricas.Model\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\seiit\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\workspace\\ADGE\\adge_back_end\\Usuarios\\Empresas.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\workspace\\ADGE\\adge_back_end\\Usuarios\\Empresas.csproj",
+        "projectName": "Empresas",
+        "projectPath": "C:\\workspace\\ADGE\\adge_back_end\\Usuarios\\Empresas.csproj",
+        "packagesPath": "C:\\Users\\seiit\\.nuget\\packages\\",
+        "outputPath": "C:\\workspace\\ADGE\\adge_back_end\\Usuarios\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\seiit\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "C:\\workspace\\ADGE\\adge_back_end\\Adge.Data\\Adge.Data.csproj": {
+                "projectPath": "C:\\workspace\\ADGE\\adge_back_end\\Adge.Data\\Adge.Data.csproj"
+              },
+              "C:\\workspace\\ADGE\\adge_back_end\\Parametricas.Data\\Parametricas.Data.csproj": {
+                "projectPath": "C:\\workspace\\ADGE\\adge_back_end\\Parametricas.Data\\Parametricas.Data.csproj"
+              },
+              "C:\\workspace\\ADGE\\adge_back_end\\Parametricas.Model\\Parametricas.Model.csproj": {
+                "projectPath": "C:\\workspace\\ADGE\\adge_back_end\\Parametricas.Model\\Parametricas.Model.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[6.0.16, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[7.0.5, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.3, )"
+            },
+            "Swashbuckle.AspNetCore": {
+              "target": "Package",
+              "version": "[6.2.3, )"
+            },
+            "WatchDog.NET": {
+              "target": "Package",
+              "version": "[1.4.7, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

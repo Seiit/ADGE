@@ -23,7 +23,11 @@ class Flurorouter {
   static String rolesRoute = '/dashboard/roles';
   static String rolRoute = '/dashboard/roles/:id';
 
-  static String iconsRoute = '/dashboard/empresa';
+  static String empresasRoute = '/dashboard/empresas';
+  static String empresaRoute = '/dashboard/empresas/:id';
+
+  static String asignacionesRoute = '/dashboard/asignaciones/:uid';
+  static String asignacionRoute = '/dashboard/asignaciones/:id';
 
   static void configureRoutes() async {
     // Auth Routes
@@ -45,6 +49,18 @@ class Flurorouter {
 
     router.define(rolRoute,
         handler: DashboardHandlers.rol, transitionType: TransitionType.fadeIn);
+
+    router.define(empresasRoute,
+        handler: DashboardHandlers.empresas,
+        transitionType: TransitionType.fadeIn);
+
+    router.define(empresaRoute,
+        handler: DashboardHandlers.empresa,
+        transitionType: TransitionType.fadeIn);
+
+    router.define(asignacionesRoute,
+        handler: DashboardHandlers.asignaciones,
+        transitionType: TransitionType.fadeIn);
 
 /*
 // Dashboard

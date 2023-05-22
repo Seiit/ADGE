@@ -50,9 +50,11 @@ class Sidebar extends StatelessWidget {
             isActive: sideMenuProvider.currentPage == Flurorouter.rolesRoute,
           ),
           MenuItem(
-              text: 'Products',
-              icon: Icons.dashboard_outlined,
-              onPressed: () {}),
+            text: 'Empresas',
+            icon: Icons.dashboard_outlined,
+            onPressed: () => navigateTo(Flurorouter.empresasRoute),
+            isActive: sideMenuProvider.currentPage == Flurorouter.empresasRoute,
+          ),
           MenuItem(
               text: 'Discount',
               icon: Icons.attach_money_outlined,
@@ -68,8 +70,8 @@ class Sidebar extends StatelessWidget {
           MenuItem(
             text: 'Empresa',
             icon: Icons.list_alt_outlined,
-            onPressed: () => navigateTo(Flurorouter.iconsRoute),
-            isActive: sideMenuProvider.currentPage == Flurorouter.iconsRoute,
+            onPressed: () => navigateTo(Flurorouter.empresasRoute),
+            isActive: sideMenuProvider.currentPage == Flurorouter.empresasRoute,
           ),
           MenuItem(
               text: 'Marketing',

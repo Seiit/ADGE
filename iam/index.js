@@ -72,6 +72,18 @@ const server = gateway({
             }
         },
         {
+            prefix: "/empresa",
+            target: "http://localhost:7244",
+            hooks: {
+                rewriteRequestHeaders(req, headers) {
+                    headers['Content-Type'] = 'application/json';
+                    console.log(_token)
+                    headers['Authorization'] = 'Bearer ' + _token;
+                    return headers
+                }
+            }
+        },
+        {
             prefix: "/payment",
             target: "http://localhost:9002/",
             hooks: {}

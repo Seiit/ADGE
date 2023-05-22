@@ -1,11 +1,6 @@
 ﻿using Adge.Model;
 using Microsoft.Data.SqlClient;
 using Parametricas.Model.sistema;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Adge.Data.Repositories.rol
 {
