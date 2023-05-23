@@ -22,6 +22,10 @@ builder.Services.AddSingleton<SqlServerConfig>(sqlServerConfig);
 
 builder.Services.AddScoped<IEmpresaRepository,EmpresaRepository>();
 
+builder.Services.AddScoped<IEventoRepository, EventoRepository>();
+
+builder.Services.AddScoped<ICalendarioRepository, CalendarioRepository>();
+
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("NewPolicie", app =>

@@ -34,7 +34,7 @@ namespace empresas.Controllers
 
         [HttpGet]
         [Route("empresa")]
-        public async Task<dynamic> GetRolByUid(int idEmpresa)
+        public async Task<dynamic> GetEmpresaByUid(int idEmpresa)
         {
             var identity = HttpContext.User.Identity as ClaimsIdentity;
 
@@ -46,7 +46,7 @@ namespace empresas.Controllers
         }
 
         [HttpDelete]
-        public async Task<dynamic> DeleteRolByUid(int idEmpresa)
+        public async Task<dynamic> DeleteEmpresaByUid(int idEmpresa)
         {
             var identity = HttpContext.User.Identity as ClaimsIdentity;
 
@@ -58,7 +58,7 @@ namespace empresas.Controllers
         }
 
         [HttpPost]
-        public async Task<dynamic> PostRol([FromBody] Empresa empresa)
+        public async Task<dynamic> PostEmpresa([FromBody] Empresa empresa)
         {
             var identity = HttpContext.User.Identity as ClaimsIdentity;
 
@@ -70,7 +70,7 @@ namespace empresas.Controllers
         }
 
         [HttpPut]
-        public async Task<dynamic> PutRol([FromBody] Empresa empresa)
+        public async Task<dynamic> PutEmpresa([FromBody] Empresa empresa)
         {
             var identity = HttpContext.User.Identity as ClaimsIdentity;
 

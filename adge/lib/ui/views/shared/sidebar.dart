@@ -36,9 +36,11 @@ class Sidebar extends StatelessWidget {
                 sideMenuProvider.currentPage == Flurorouter.dashboardRoute,
           ),
           MenuItem(
-              text: 'Orders',
-              icon: Icons.shopping_cart_outlined,
-              onPressed: () {}),
+            text: 'Eventos',
+            icon: Icons.shopping_cart_outlined,
+            onPressed: () => navigateTo(Flurorouter.eventosRoute),
+            isActive: sideMenuProvider.currentPage == Flurorouter.eventosRoute,
+          ),
           MenuItem(
               text: 'Analytic',
               icon: Icons.show_chart_outlined,
@@ -56,9 +58,12 @@ class Sidebar extends StatelessWidget {
             isActive: sideMenuProvider.currentPage == Flurorouter.empresasRoute,
           ),
           MenuItem(
-              text: 'Discount',
-              icon: Icons.attach_money_outlined,
-              onPressed: () {}),
+            text: 'Calendarios',
+            icon: Icons.attach_money_outlined,
+            onPressed: () => navigateTo(Flurorouter.calendariosRoute),
+            isActive:
+                sideMenuProvider.currentPage == Flurorouter.calendariosRoute,
+          ),
           MenuItem(
             text: 'Users',
             icon: Icons.people_alt_outlined,

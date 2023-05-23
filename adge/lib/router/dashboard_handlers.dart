@@ -3,10 +3,14 @@ import 'package:adge/providers/dashboard/sidemenu_provider.dart';
 import 'package:adge/router/router.dart';
 import 'package:adge/ui/views/asignaciones/asignacion_view.dart';
 import 'package:adge/ui/views/auth/login_view.dart';
+import 'package:adge/ui/views/calendarios/calendario_view.dart';
+import 'package:adge/ui/views/calendarios/calendarios_view.dart';
 import 'package:adge/ui/views/dashboard_view.dart';
 import 'package:adge/ui/views/asignaciones/asignaciones_view.dart';
 import 'package:adge/ui/views/empresas/empresa_view.dart';
 import 'package:adge/ui/views/empresas/empresas_view.dart';
+import 'package:adge/ui/views/eventos/evento_view.dart';
+import 'package:adge/ui/views/eventos/eventos_view.dart';
 import 'package:adge/ui/views/roles/rol_view.dart';
 import 'package:adge/ui/views/roles/roles_view.dart';
 import 'package:adge/ui/views/user/user_view.dart';
@@ -133,7 +137,7 @@ class DashboardHandlers {
   static Handler asignacion = Handler(handlerFunc: (context, params) {
     final authProvider = Provider.of<AuthProvider>(context!);
     Provider.of<SideMenuProvider>(context, listen: false)
-        .setCurrentPageUrl(Flurorouter.userRoute);
+        .setCurrentPageUrl(Flurorouter.asignacionRoute);
 
     if (authProvider.authStatus == AuthStatus.authenticated) {
       print(params);
@@ -150,100 +154,67 @@ class DashboardHandlers {
     }
   });
 
-  /*
-// users
-  static Handler users = Handler(handlerFunc: (context, params) {
+  static Handler eventos = Handler(handlerFunc: (context, params) {
     final authProvider = Provider.of<AuthProvider>(context!);
     Provider.of<SideMenuProvider>(context, listen: false)
-        .setCurrentPageUrl(Flurorouter.usersRoute);
-
-    if (authProvider.authStatus == AuthStatus.authenticated)
-      return UsersView();
-    else
-      return LoginView();
-  });
-
-  static Handler user = Handler(handlerFunc: (context, params) {
-    final authProvider = Provider.of<AuthProvider>(context!);
-    Provider.of<SideMenuProvider>(context, listen: false)
-        .setCurrentPageUrl(Flurorouter.userRoute);
+        .setCurrentPageUrl(Flurorouter.eventosRoute);
 
     if (authProvider.authStatus == AuthStatus.authenticated) {
-      print(params);
-      if (params['uid']?.first != null) {
-        return UserView(uid: params['uid']!.first);
-      } else {
-        return UsersView();
-      }
+      return const EventosView();
     } else {
       return LoginView();
     }
   });
-*/
-  /*
 
-  static Handler icons = Handler(handlerFunc: (context, params) {
+  static Handler evento = Handler(handlerFunc: (context, params) {
     final authProvider = Provider.of<AuthProvider>(context!);
     Provider.of<SideMenuProvider>(context, listen: false)
-        .setCurrentPageUrl(Flurorouter.iconsRoute);
-
-    if (authProvider.authStatus == AuthStatus.authenticated)
-      return IconsView();
-    else
-      return LoginView();
-  });
-
-  static Handler blank = Handler(handlerFunc: (context, params) {
-    final authProvider = Provider.of<AuthProvider>(context!);
-    Provider.of<SideMenuProvider>(context, listen: false)
-        .setCurrentPageUrl(Flurorouter.blankRoute);
-
-    if (authProvider.authStatus == AuthStatus.authenticated)
-      return BlankView();
-    else
-      return LoginView();
-  });
-
-  static Handler categories = Handler(handlerFunc: (context, params) {
-    final authProvider = Provider.of<AuthProvider>(context!);
-    Provider.of<SideMenuProvider>(context, listen: false)
-        .setCurrentPageUrl(Flurorouter.categoriesRoute);
-
-    if (authProvider.authStatus == AuthStatus.authenticated)
-      return CategoriesView();
-    else
-      return LoginView();
-  });
-
-  // users
-  static Handler users = Handler(handlerFunc: (context, params) {
-    final authProvider = Provider.of<AuthProvider>(context!);
-    Provider.of<SideMenuProvider>(context, listen: false)
-        .setCurrentPageUrl(Flurorouter.usersRoute);
-
-    if (authProvider.authStatus == AuthStatus.authenticated)
-      return UsersView();
-    else
-      return LoginView();
-  });
-
-  // user
-  static Handler user = Handler(handlerFunc: (context, params) {
-    final authProvider = Provider.of<AuthProvider>(context!);
-    Provider.of<SideMenuProvider>(context, listen: false)
-        .setCurrentPageUrl(Flurorouter.userRoute);
+        .setCurrentPageUrl(Flurorouter.eventoRoute);
 
     if (authProvider.authStatus == AuthStatus.authenticated) {
       print(params);
-      if (params['uid']?.first != null) {
-        return UserView(uid: params['uid']!.first);
+      if (params['id']?.first != null) {
+        return EventoView(
+          id: params['id']!.first,
+          isCreate: false,
+        );
       } else {
-        return UsersView();
+        return EventosView();
       }
     } else {
       return LoginView();
     }
   });
 
-  */
+  static Handler calendarios = Handler(handlerFunc: (context, params) {
+    final authProvider = Provider.of<AuthProvider>(context!);
+    Provider.of<SideMenuProvider>(context, listen: false)
+        .setCurrentPageUrl(Flurorouter.calendariosRoute);
+
+    if (authProvider.authStatus == AuthStatus.authenticated) {
+      return const CalendariosView();
+    } else {
+      return LoginView();
+    }
+  });
+
+  static Handler calendario = Handler(handlerFunc: (context, params) {
+    final authProvider = Provider.of<AuthProvider>(context!);
+    Provider.of<SideMenuProvider>(context, listen: false)
+        .setCurrentPageUrl(Flurorouter.calendarioRoute);
+
+    if (authProvider.authStatus == AuthStatus.authenticated) {
+      print(params);
+      if (params['id']?.first != null) {
+        return CalendarioView(
+          id: params['id']!.first,
+          isCreate: false,
+        );
+      } else {
+        return CalendariosView();
+      }
+    } else {
+      return LoginView();
+    }
+  });
 }
