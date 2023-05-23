@@ -19,44 +19,6 @@ namespace Adge.Data.Repositories
             return new SqlConnection(_sqlServerConfig.ConnectionString);
         }
 
-        public async Task<dynamic> GetEmpresas()
-        {
-            var errors = new List<DbError>();
-            var dropDataList = new List<DropData>();
-            var db = dbConection();
-
-            db.Open();
-
-            string sql = "select null as codigo, 'Seleccione' as etiqueta union all select distinct convert(varchar(4000),[id_empresa]) as codigo, convert(varchar(4000),[nombre_empresa]) as etiqueta from [adge].[empresa] order by 1";
-
-            await using (SqlCommand command = new SqlCommand(sql, db))
-            {
-                var reader = command.ExecuteReader();
-
-                while (reader.Read())
-                {
-                    
-                    dropDataList.Add(new DropData
-                        {
-                            Codigo = reader.IsDBNull(0) ? "" : reader.GetString(0),
-                            Etiqueta = reader.GetString(1)
-                        });
-                    
-                }
-
-                reader.Close();
-            }
-
-            db.Close();
-
-            return new
-            {
-                success = true,
-                message = "ok",
-                result = dropDataList
-            };
-        }
-
         public async Task<dynamic> GetAsignaciones(String uid)
         {
             List<Asignacion> asignaciones = new List<Asignacion>();
@@ -111,20 +73,20 @@ namespace Adge.Data.Repositories
             };
         }
 
-        public async Task<dynamic> UpdateAsignacion(Asignacion asignacion)
+        public async Task<dynamic> UpdateAsignacion(AsignacionPog asignacion)
         {
             List<DbError> dbErrors = new List<DbError>();
             var db = dbConection();
 
             db.Open();
 
-            String sql = "IF NOT EXISTS (SELECT 1 FROM adge.asignacion WHERE id_empresa != @id_empresa and id_rol != @id_rol and id_asignacion = @id_asignacion ) BEGIN UPDATE adge.asignacion SET id_empresa = @id_empresa , id_rol = @id_rol WHERE id_asignacion = @id_asignacion END";
+            String sql = "IF NOT EXISTS (SELECT 1 FROM adge.asignaciones WHERE id_empresa != @id_empresa and id_rol != @id_rol and id_asignacion = @id_asignacion ) BEGIN UPDATE adge.asignaciones SET id_empresa = @id_empresa , id_rol = @id_rol WHERE id_asignacion = @id_asignacion END";
 
             await using (SqlCommand cmd = new SqlCommand(sql, db))
             {
-                cmd.Parameters.AddWithValue("@id_asignacion", asignacion.idAsignacion);
-                cmd.Parameters.AddWithValue("@id_rol", asignacion.rol.id);
-                cmd.Parameters.AddWithValue("@id_empresa", asignacion.empresa.idEmpresa);
+                cmd.Parameters.AddWithValue("@id_asignacion", asignacion.id_Asignacion);
+                cmd.Parameters.AddWithValue("@id_rol", asignacion.id_rol);
+                cmd.Parameters.AddWithValue("@id_empresa", asignacion.id_empresa);
 
                 try
                 {
@@ -233,20 +195,20 @@ namespace Adge.Data.Repositories
             };
         }
 
-        public async Task<dynamic> CreateAsignacion(Asignacion asignacion)
+        public async Task<dynamic> CreateAsignacion(AsignacionPog asignacion)
         {
             List<DbError> dbErrors = new List<DbError>();
             var db = dbConection();
 
             db.Open();
 
-            String sql = "IF NOT EXISTS (SELECT 1 FROM adge.asignacion WHERE id_empresa != @id_empresa and id_rol != @id_rol and id_usuario = @id_usuario) BEGIN INSERT INTO adge.asignacion (id_usuario, id_empresa , id_rol) VALUES(@id_usuario, @id_empresa , @id_rol) END";
+            String sql = "IF NOT EXISTS (SELECT 1 FROM adge.asignaciones WHERE id_empresa != @id_empresa and id_rol != @id_rol and id_usuario = @id_usuario) BEGIN INSERT INTO adge.asignaciones (id_usuario, id_empresa , id_rol) VALUES(@id_usuario, @id_empresa , @id_rol) END";
 
             await using (SqlCommand cmd = new SqlCommand(sql, db))
             {
-                cmd.Parameters.AddWithValue("@id_usuario", asignacion.usuario.id);
-                cmd.Parameters.AddWithValue("@id_empresa", asignacion.empresa.idEmpresa);
-                cmd.Parameters.AddWithValue("@id_rol", asignacion.rol.id);
+                cmd.Parameters.AddWithValue("@id_usuario", asignacion.id_usuario);
+                cmd.Parameters.AddWithValue("@id_empresa", asignacion.id_empresa);
+                cmd.Parameters.AddWithValue("@id_rol", asignacion.id_rol);
 
                 try
                 {
@@ -364,13 +326,13 @@ namespace Adge.Data.Repositories
             {
                 autonumerado = 1,
                 parametro = "uid",
-                textoError = "Rol no encontrado"
+                textoError = "Asignacion no encontrada"
             });
 
             return new
             {
                 success = false,
-                message = "Rol no encontrado",
+                message = "Asignacion no encontrada",
                 result = dbErrors
             };
         }

@@ -21,6 +21,11 @@ class AsignacionesProvider extends ChangeNotifier {
     final resp = await AdgeApi.Get('/user/Asignacion', data, contex);
     final asignacionesResp = AsignacionResponse.fromMap(resp);
     asignaciones = [...asignacionesResp.asignaciones];
+
+    if (isLoading) {
+      notifyListeners();
+    }
+
     isLoading = false;
   }
 

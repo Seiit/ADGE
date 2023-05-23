@@ -8,7 +8,7 @@ namespace Parametricas.Model
 {
     public class DropData
     {
-        public string? Codigo { get; set; }
+        public int? Codigo { get; set; }
 
         public string Etiqueta { get; set; } = null!;
     }

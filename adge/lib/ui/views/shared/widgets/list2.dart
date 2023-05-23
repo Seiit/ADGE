@@ -13,14 +13,21 @@ class List2 extends StatefulWidget {
   String label;
   String llave;
   String value;
+  String lista;
 
   List2(
       {super.key,
       required this.llave,
       required this.value,
+      required this.lista,
       required this.label,
       required this.controlador,
-      required this.apiReference});
+      required this.apiReference,
+      this.dropKey}) {
+    if (dropKey != null || dropKey != '') {
+      controlador.value = ControllerUtils.setValue(dropKey!).value;
+    }
+  }
 
   @override
   State<StatefulWidget> createState() => _List2();
@@ -38,12 +45,12 @@ class _List2 extends State<List2> {
                 SizedBox(width: widget.size, child: Text(widget.label)),
                 FutureBuilder(
                     future: List2Service.getDropData(widget.apiReference,
-                        context, widget.llave, widget.value),
+                        context, widget.llave, widget.value, widget.lista),
                     builder: (context, snapshop) {
                       if (snapshop.hasData) {
                         return SizedBox(
                             child: DropdownButton(
-                                value: widget.dropKey,
+                                value: widget.dropKey ?? "",
                                 isExpanded: true,
                                 onChanged: (value) {
                                   setState(() {

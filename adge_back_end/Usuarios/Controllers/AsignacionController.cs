@@ -21,13 +21,6 @@ namespace usuarios.Controllers
         }
 
         [HttpGet]
-        [Route("empresas")]
-        public async Task<dynamic> GetEmpresas()
-        {
-            return await _asignacionRepository.GetEmpresas();
-        }
-
-        [HttpGet]
         public async Task<dynamic> GetAsignaciones(string uid)
         {
             var identity = HttpContext.User.Identity as ClaimsIdentity;
@@ -41,7 +34,7 @@ namespace usuarios.Controllers
 
         [HttpGet]
         [Route("asignacion")]
-        public async Task<dynamic> GetAsignacionByUid(int id)
+        public async Task<dynamic> GetAsignacionByUid(int idAsignacion)
         {
             var identity = HttpContext.User.Identity as ClaimsIdentity;
 
@@ -49,7 +42,7 @@ namespace usuarios.Controllers
 
             if (!rtoken.success) return rtoken;
 
-            return _asignacionRepository.GetAsignacionById(id);
+            return _asignacionRepository.GetAsignacionById(idAsignacion);
         }
 
         [HttpDelete]
@@ -65,7 +58,7 @@ namespace usuarios.Controllers
         }
 
         [HttpPost]
-        public async Task<dynamic> PostAsignacion([FromBody] Asignacion asignacion)
+        public async Task<dynamic> PostAsignacion([FromBody] AsignacionPog asignacion)
         {
             var identity = HttpContext.User.Identity as ClaimsIdentity;
 
@@ -77,7 +70,7 @@ namespace usuarios.Controllers
         }
 
         [HttpPut]
-        public async Task<dynamic> PutAsignacion([FromBody] Asignacion asignacion)
+        public async Task<dynamic> PutAsignacion([FromBody] AsignacionPog asignacion)
         {
             var identity = HttpContext.User.Identity as ClaimsIdentity;
 

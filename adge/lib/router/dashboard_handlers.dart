@@ -1,6 +1,7 @@
 import 'package:adge/providers/auth/auth_provider.dart';
 import 'package:adge/providers/dashboard/sidemenu_provider.dart';
 import 'package:adge/router/router.dart';
+import 'package:adge/ui/views/asignaciones/asignacion_view.dart';
 import 'package:adge/ui/views/auth/login_view.dart';
 import 'package:adge/ui/views/dashboard_view.dart';
 import 'package:adge/ui/views/asignaciones/asignaciones_view.dart';
@@ -121,6 +122,26 @@ class DashboardHandlers {
       print(params);
       if (params['uid']?.first != null) {
         return AsignacionesView(uid: params['uid']!.first);
+      } else {
+        return UsersView();
+      }
+    } else {
+      return LoginView();
+    }
+  });
+
+  static Handler asignacion = Handler(handlerFunc: (context, params) {
+    final authProvider = Provider.of<AuthProvider>(context!);
+    Provider.of<SideMenuProvider>(context, listen: false)
+        .setCurrentPageUrl(Flurorouter.userRoute);
+
+    if (authProvider.authStatus == AuthStatus.authenticated) {
+      print(params);
+      if (params['id']?.first != null) {
+        return AsignacionView(
+          id: params['id']!.first,
+          isCreate: false,
+        );
       } else {
         return UsersView();
       }

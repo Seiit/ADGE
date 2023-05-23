@@ -3,16 +3,13 @@ import 'package:adge/models/asignacion.dart';
 import 'package:adge/models/empresa.dart';
 import 'package:adge/models/rol.dart';
 import 'package:adge/models/usuario.dart';
-import 'package:adge/providers/empresas/empresas_provider.dart';
-import 'package:adge/providers/roles/roles_provider.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
 class AsignacionFormProvider extends ChangeNotifier {
   Asignacion? asignacion;
   late GlobalKey<FormState> formKey;
 
-  copyEmpresaWith({
+  copyAsignacionWith({
     int? idAsignacion,
     Usuario? usuario,
     Empresa? empresa,
@@ -30,10 +27,15 @@ class AsignacionFormProvider extends ChangeNotifier {
     return formKey.currentState!.validate();
   }
 
-  Future updateAsignacion(context) async {
+  Future updateAsignacion(context, idUser, idRol, idEmpresa) async {
     if (!_validForm()) return false;
 
-    Map<String, dynamic> data = asignacion!.toMap();
+    Map<String, dynamic> data = {
+      'id_Asignacion': asignacion!.idAsignacion.toString(),
+      'id_usuario': idUser,
+      'id_empresa': idEmpresa,
+      'id_rol': idRol
+    };
 
     try {
       var resp = await AdgeApi.Put('/user/Asignacion', data, context);
@@ -44,10 +46,15 @@ class AsignacionFormProvider extends ChangeNotifier {
     }
   }
 
-  Future createAsignacion(context) async {
+  Future createAsignacion(context, idUser, idRol, idEmpresa) async {
     if (!_validForm()) return false;
 
-    Map<String, dynamic> data = asignacion!.toMap();
+    Map<String, dynamic> data = {
+      'id_Asignacion': '',
+      'id_usuario': idUser,
+      'id_empresa': idEmpresa,
+      'id_rol': idRol
+    };
 
     try {
       var resp = await AdgeApi.Post('/user/Asignacion', data, context);

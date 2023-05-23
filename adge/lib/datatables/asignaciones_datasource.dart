@@ -20,7 +20,7 @@ class AsignacionesDataSource extends DataTableSource {
           icon: Icon(Icons.edit_outlined),
           onPressed: () {
             NavigationService.replaceTo(
-                '/dashboard/asignaciones/${asignacion.idAsignacion}');
+                '/dashboard/asignacion/${asignacion.idAsignacion}');
           })),
     ]);
   }

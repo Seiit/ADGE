@@ -6,15 +6,14 @@ namespace Adge.Data.Repositories
 {
     public interface IAsignacionRepository
     {
-        Task<dynamic> GetEmpresas();
         Task<dynamic> GetAsignaciones(String uid);
 
-        Task<dynamic> UpdateAsignacion(Asignacion asignacion);
+        Task<dynamic> UpdateAsignacion(AsignacionPog asignacion);
 
         Task<dynamic> DeleteAsignacion(int id);
 
         Task<dynamic?> GetAsignacionById(int id);
 
-        Task<dynamic?> CreateAsignacion(Asignacion asignacion);
+        Task<dynamic?> CreateAsignacion(AsignacionPog asignacion);
     }
 }

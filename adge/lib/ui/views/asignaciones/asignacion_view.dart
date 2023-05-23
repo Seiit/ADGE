@@ -9,6 +9,7 @@ import 'package:adge/services/notifications_service.dart';
 import 'package:adge/ui/cards/white_card.dart';
 import 'package:adge/ui/labels/custom_labels.dart';
 import 'package:adge/ui/views/inputs/custom_inputs.dart';
+import 'package:adge/ui/views/shared/widgets/list2.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -119,6 +120,8 @@ class _AsignacionViewBody extends StatelessWidget {
 
 class _AsignacionViewForm extends StatelessWidget {
   var isCreate;
+  TextEditingController rol = TextEditingController();
+  TextEditingController empresa = TextEditingController();
 
   _AsignacionViewForm({Key? key, required this.isCreate}) : super(key: key);
 
@@ -153,14 +156,37 @@ class _AsignacionViewForm extends StatelessWidget {
                     label: 'Usuario',
                     icon: Icons.mark_email_read_outlined),
               ),
+              List2(
+                llave: 'id',
+                value: 'rol',
+                label: 'Rol',
+                lista: 'roles',
+                controlador: rol,
+                apiReference: '/user/Rol',
+                dropKey: isCreate ? "" : asignacion.rol.id.toString(),
+              ),
+              List2(
+                llave: 'idEmpresa',
+                value: 'nombreEmpresa',
+                lista: 'empresas',
+                label: 'Empresa',
+                controlador: empresa,
+                apiReference: '/empresa/Empresa',
+                dropKey:
+                    isCreate ? "" : asignacion.empresa.idEmpresa.toString(),
+              ),
               const SizedBox(height: 20),
               ConstrainedBox(
                 constraints: const BoxConstraints(maxWidth: 120),
                 child: ElevatedButton(
                     onPressed: () async {
                       if (isCreate) {
-                        final saved = await asignacionFormProvider
-                            .createAsignacion(context);
+                        final saved =
+                            await asignacionFormProvider.createAsignacion(
+                                context,
+                                asignacion.usuario.uid,
+                                rol.value.text,
+                                empresa.value.text);
                         if (saved) {
                           // ignore: use_build_context_synchronously
                           NotificationsService.showSnackbarSucces(
@@ -178,8 +204,12 @@ class _AsignacionViewForm extends StatelessWidget {
                               'Advertencia:', 'No se pudo guardar', context);
                         }
                       } else {
-                        final saved = await asignacionFormProvider
-                            .updateAsignacion(context);
+                        final saved =
+                            await asignacionFormProvider.updateAsignacion(
+                                context,
+                                asignacion.usuario.uid,
+                                rol.value.text,
+                                empresa.value.text);
                         if (saved) {
                           // ignore: use_build_context_synchronously
                           NotificationsService.showSnackbarSucces(

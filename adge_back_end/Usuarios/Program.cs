@@ -1,5 +1,6 @@
 using Adge.Data;
 using Adge.Data.Repositories;
+using Adge.Data.Repositories.rol;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
@@ -19,6 +20,7 @@ var sqlServerConfig = new SqlServerConfig(builder.Configuration.GetConnectionStr
 builder.Services.AddSingleton<SqlServerConfig>(sqlServerConfig);
 
 builder.Services.AddScoped<IUsuarioRepository,UsuarioRepository>();
+builder.Services.AddScoped<IRolRepository,RolRepository>();
 builder.Services.AddScoped<IAsignacionRepository, AsignacionRepository>();
 
 builder.Services.AddCors(options =>

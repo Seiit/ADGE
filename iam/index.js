@@ -73,7 +73,7 @@ const server = gateway({
         },
         {
             prefix: "/empresa",
-            target: "http://localhost:7244",
+            target: "http://localhost:7245",
             hooks: {
                 rewriteRequestHeaders(req, headers) {
                     headers['Content-Type'] = 'application/json';

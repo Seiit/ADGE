@@ -23,9 +23,9 @@ class Asignacion {
 
   factory Asignacion.fromMap(Map<String, dynamic> json) => Asignacion(
       idAsignacion: json["idAsignacion"],
-      usuario: Usuario.fromJson(json["usuario"]),
-      empresa: Empresa.fromJson(json['empresa']),
-      rol: Rol.fromJson(json['rol']));
+      usuario: Usuario.fromMap(json["usuario"]),
+      empresa: Empresa.fromMap(json['empresa']),
+      rol: Rol.fromMap(json['rol']));
 
   Map<String, dynamic> toMap() => {
         "idAsignacion": idAsignacion,

@@ -148,6 +148,27 @@ class _UserViewForm extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   ConstrainedBox(
+                    constraints: BoxConstraints(maxWidth: 150),
+                    child: ElevatedButton(
+                        onPressed: () {
+                          NavigationService.replaceTo(
+                              '/dashboard/asignaciones/${user.uid}');
+                        },
+                        style: ButtonStyle(
+                          backgroundColor:
+                              MaterialStateProperty.all(Colors.indigo),
+                          shadowColor:
+                              MaterialStateProperty.all(Colors.transparent),
+                        ),
+                        child: Row(
+                          children: const [
+                            Icon(Icons.fingerprint, size: 20),
+                            Text('  Asignaciones')
+                          ],
+                        )),
+                  ),
+                  SizedBox(width: 20),
+                  ConstrainedBox(
                     constraints: BoxConstraints(maxWidth: 120),
                     child: ElevatedButton(
                         onPressed: () async {
@@ -173,27 +194,6 @@ class _UserViewForm extends StatelessWidget {
                           children: const [
                             Icon(Icons.save_outlined, size: 20),
                             Text('  Guardar')
-                          ],
-                        )),
-                  ),
-                  SizedBox(width: 20),
-                  ConstrainedBox(
-                    constraints: BoxConstraints(maxWidth: 150),
-                    child: ElevatedButton(
-                        onPressed: () {
-                          NavigationService.replaceTo(
-                              '/dashboard/asignaciones/${user.uid}');
-                        },
-                        style: ButtonStyle(
-                          backgroundColor:
-                              MaterialStateProperty.all(Colors.indigo),
-                          shadowColor:
-                              MaterialStateProperty.all(Colors.transparent),
-                        ),
-                        child: Row(
-                          children: const [
-                            Icon(Icons.save_outlined, size: 20),
-                            Text('  Asignaciones')
                           ],
                         )),
                   )
