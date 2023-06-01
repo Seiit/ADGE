@@ -26,6 +26,8 @@ builder.Services.AddScoped<IEventoRepository, EventoRepository>();
 
 builder.Services.AddScoped<ICalendarioRepository, CalendarioRepository>();
 
+builder.Services.AddScoped<IEvidenciaRepository, EvidenciaRepository>();
+
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("NewPolicie", app =>

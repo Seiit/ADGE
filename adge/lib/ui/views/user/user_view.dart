@@ -58,7 +58,7 @@ class _UserViewState extends State<UserView> {
       child: ListView(
         physics: ClampingScrollPhysics(),
         children: [
-          Text('User View', style: CustomLabels.h1),
+          Text('Usuario', style: CustomLabels.h1),
           SizedBox(height: 10),
           if (user == null)
             WhiteCard(

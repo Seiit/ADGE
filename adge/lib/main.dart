@@ -10,6 +10,7 @@ import 'package:adge/providers/empresas/empresa_form_provider.dart';
 import 'package:adge/providers/empresas/empresas_provider.dart';
 import 'package:adge/providers/eventos/evento_form_provider.dart';
 import 'package:adge/providers/eventos/eventos_provider.dart';
+import 'package:adge/providers/evidencias/evidencia_form_provider.dart';
 import 'package:adge/providers/roles/rol_form_provider.dart';
 import 'package:adge/providers/roles/roles_provider.dart';
 import 'package:adge/providers/user/user_form_provider.dart';
@@ -56,6 +57,7 @@ class AppState extends StatelessWidget {
         ChangeNotifierProvider(create: (_) => EventoFormProvider()),
         ChangeNotifierProvider(create: (_) => CalendariosProvider(context)),
         ChangeNotifierProvider(create: (_) => CalendarioFormProvider()),
+        ChangeNotifierProvider(create: (_) => EvidenciaFormProvider())
       ],
       child: MyApp(),
     );

@@ -220,6 +220,28 @@ class _CalendarioViewForm extends StatelessWidget {
                 apiReference: '/empresa/Evento',
                 dropKey: isCreate ? "" : calendario.evento.idEvento.toString(),
               ),
+              Visibility(
+                  visible: !isCreate,
+                  child: ConstrainedBox(
+                    constraints: const BoxConstraints(maxWidth: 140),
+                    child: ElevatedButton(
+                        onPressed: () async {
+                          NavigationService.replaceTo(
+                              '/dashboard/evidencia/${calendario.idCalendario}');
+                        },
+                        style: ButtonStyle(
+                          backgroundColor:
+                              MaterialStateProperty.all(Colors.indigo),
+                          shadowColor:
+                              MaterialStateProperty.all(Colors.transparent),
+                        ),
+                        child: Row(
+                          children: const [
+                            Icon(Icons.save_outlined, size: 20),
+                            Text('  Evidencias')
+                          ],
+                        )),
+                  )),
               const SizedBox(height: 20),
               ConstrainedBox(
                 constraints: const BoxConstraints(maxWidth: 120),

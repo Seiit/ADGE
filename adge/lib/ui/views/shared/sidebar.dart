@@ -42,10 +42,6 @@ class Sidebar extends StatelessWidget {
             isActive: sideMenuProvider.currentPage == Flurorouter.eventosRoute,
           ),
           MenuItem(
-              text: 'Analytic',
-              icon: Icons.show_chart_outlined,
-              onPressed: () {}),
-          MenuItem(
             text: 'Roles',
             icon: Icons.layers_outlined,
             onPressed: () => navigateTo(Flurorouter.rolesRoute),
@@ -69,28 +65,6 @@ class Sidebar extends StatelessWidget {
             icon: Icons.people_alt_outlined,
             onPressed: () => navigateTo(Flurorouter.usersRoute),
             isActive: sideMenuProvider.currentPage == Flurorouter.usersRoute,
-          ),
-          SizedBox(height: 30),
-          TextSeparator(text: 'Personal'),
-          MenuItem(
-            text: 'Empresa',
-            icon: Icons.list_alt_outlined,
-            onPressed: () => navigateTo(Flurorouter.empresasRoute),
-            isActive: sideMenuProvider.currentPage == Flurorouter.empresasRoute,
-          ),
-          MenuItem(
-              text: 'Marketing',
-              icon: Icons.mark_email_read_outlined,
-              onPressed: () {}),
-          MenuItem(
-              text: 'Campaign',
-              icon: Icons.note_add_outlined,
-              onPressed: () {}),
-          MenuItem(
-            text: 'Black',
-            icon: Icons.post_add_outlined,
-            onPressed: () => navigateTo(Flurorouter.blankRoute),
-            isActive: sideMenuProvider.currentPage == Flurorouter.blankRoute,
           ),
           SizedBox(height: 50),
           TextSeparator(text: 'Exit'),

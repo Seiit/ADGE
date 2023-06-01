@@ -35,6 +35,8 @@ class Flurorouter {
   static String calendariosRoute = '/dashboard/calendarios';
   static String calendarioRoute = '/dashboard/calendarios/:id';
 
+  static String evidenciaRoute = '/dashboard/evidencia/:id';
+
   static void configureRoutes() async {
     // Auth Routes
     router.define(rootRoute,
@@ -86,6 +88,10 @@ class Flurorouter {
 
     router.define(calendarioRoute,
         handler: DashboardHandlers.calendario,
+        transitionType: TransitionType.fadeIn);
+
+    router.define(evidenciaRoute,
+        handler: DashboardHandlers.evidencia,
         transitionType: TransitionType.fadeIn);
 
 /*

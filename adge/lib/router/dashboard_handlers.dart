@@ -11,6 +11,7 @@ import 'package:adge/ui/views/empresas/empresa_view.dart';
 import 'package:adge/ui/views/empresas/empresas_view.dart';
 import 'package:adge/ui/views/eventos/evento_view.dart';
 import 'package:adge/ui/views/eventos/eventos_view.dart';
+import 'package:adge/ui/views/evidencias/evidencia_view.dart';
 import 'package:adge/ui/views/roles/rol_view.dart';
 import 'package:adge/ui/views/roles/roles_view.dart';
 import 'package:adge/ui/views/user/user_view.dart';
@@ -209,6 +210,25 @@ class DashboardHandlers {
         return CalendarioView(
           id: params['id']!.first,
           isCreate: false,
+        );
+      } else {
+        return CalendariosView();
+      }
+    } else {
+      return LoginView();
+    }
+  });
+
+  static Handler evidencia = Handler(handlerFunc: (context, params) {
+    final authProvider = Provider.of<AuthProvider>(context!);
+    Provider.of<SideMenuProvider>(context, listen: false)
+        .setCurrentPageUrl(Flurorouter.calendarioRoute);
+
+    if (authProvider.authStatus == AuthStatus.authenticated) {
+      print(params);
+      if (params['id']?.first != null) {
+        return EvidenciaView(
+          uid: params['id']!.first,
         );
       } else {
         return CalendariosView();
